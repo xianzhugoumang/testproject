@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/db_bingli?useUnicode=true&amp;amp;amp;amp;amp;amp;characterEncoding=utf-8">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/model/TAdmin.hbm.xml</value>
+			    <value>com/model/TKeshi.hbm.xml</value>
+			    <value>com/model/TYisheng.hbm.xml</value>
+			    <value>com/model/TXiangmu.hbm.xml</value>
+			    <value>com/model/TBingli.hbm.xml</value>
+			    <value>com/model/TJilu.hbm.xml</value>
+			    <value>com/model/TNeirong.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 后台的登录 -->
+	<bean id="loginService" class="com.service.loginService">
+		<property name="adminDAO">
+			<ref bean="adminDAO" />
+		</property>
+		<property name="yishengDAO">
+			<ref bean="yishengDAO" />
+		</property>
+	</bean>
+	
+	<bean id="adminDAO" class="com.dao.TAdminDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="bingliDAO" class="com.dao.TBingliDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="bingliAction" class="com.action.bingliAction" scope="prototype">
+		<property name="bingliDAO">
+			<ref bean="bingliDAO" />
+		</property>
+	</bean>		
+	
+	<bean id="xiangmuDAO" class="com.dao.TXiangmuDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="xiangmuAction" class="com.action.xiangmuAction" scope="prototype">
+		<property name="xiangmuDAO">
+			<ref bean="xiangmuDAO" />
+		</property>
+		<property name="keshiDAO">
+			<ref bean="keshiDAO" />
+		</property>
+	</bean>		
+	
+	<bean id="keshiDAO" class="com.dao.TKeshiDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="keshiAction" class="com.action.keshiAction" scope="prototype">
+		<property name="keshiDAO">
+			<ref bean="keshiDAO" />
+		</property>
+	</bean>	
+	
+	<bean id="yishengDAO" class="com.dao.TYishengDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="yishengAction" class="com.action.yishengAction" scope="prototype">
+		<property name="yishengDAO">
+			<ref bean="yishengDAO" />
+		</property>
+		<property name="keshiDAO">
+			<ref bean="keshiDAO" />
+		</property>
+	</bean>		
+	<bean id="neirongDAO" class="com.dao.TNeirongDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jiluDAO" class="com.dao.TJiluDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jiluAction" class="com.action.jiluAction" scope="prototype">
+		<property name="bingliDAO">
+			<ref bean="bingliDAO" />
+		</property>
+		<property name="xiangmuDAO">
+			<ref bean="xiangmuDAO" />
+		</property>
+		<property name="jiluDAO">
+			<ref bean="jiluDAO" />
+		</property>
+		<property name="neirongDAO">
+			<ref bean="neirongDAO" />
+		</property>
+	</bean>	
+</beans>

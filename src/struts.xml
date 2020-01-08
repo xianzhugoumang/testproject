@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+    <package name="liu" extends="struts-default">
+        <global-results>
+            <result name="succeed">/common/succeed.jsp</result>
+            <result name="msg">/common/msg.jsp</result>
+        </global-results>
+        
+        <action name="keshiAdd" class="keshiAction" method="keshiAdd">
+        </action>
+        <action name="keshiUpd" class="keshiAction" method="keshiUpd">
+        </action>
+        <action name="keshiMana" class="keshiAction" method="keshiMana">
+             <result name="success">/admin/keshi/keshiMana.jsp</result>
+        </action>
+        <action name="keshiSele" class="keshiAction" method="keshiSele">
+             <result name="success">/admin/keshi/keshiSele.jsp</result>
+        </action>
+        <action name="keshiDel" class="keshiAction" method="keshiDel">
+        </action>
+        
+        <action name="yishengAdd" class="yishengAction" method="yishengAdd">
+        </action>
+        <action name="yishengUpd" class="yishengAction" method="yishengUpd">
+        </action>
+        <action name="yishengMana" class="yishengAction" method="yishengMana">
+             <result name="success">/admin/yisheng/yishengMana.jsp</result>
+        </action>
+        <action name="yishengToUpd" class="yishengAction" method="yishengToUpd">
+             <result name="success">/admin/yisheng/yishengEditPre.jsp</result>
+        </action>
+        <action name="yishengDel" class="yishengAction" method="yishengDel">
+        </action>
+        
+        <action name="xiangmuAdd" class="xiangmuAction" method="xiangmuAdd">
+        </action>
+        <action name="xiangmuUpd" class="xiangmuAction" method="xiangmuUpd">
+        </action>
+        <action name="xiangmuMana" class="xiangmuAction" method="xiangmuMana">
+             <result name="success">/admin/xiangmu/xiangmuMana.jsp</result>
+        </action>
+        <action name="xiangmuDel" class="xiangmuAction" method="xiangmuDel">
+        </action>
+        
+        <action name="bingliAdd" class="bingliAction" method="bingliAdd">
+        </action>
+        <action name="bingliUpd" class="bingliAction" method="bingliUpd">
+        </action>
+        <action name="bingliMana" class="bingliAction" method="bingliMana">
+             <result name="success">/admin/bingli/bingliMana.jsp</result>
+        </action>
+        <action name="bingliList" class="bingliAction" method="bingliList">
+             <result name="success">/admin/bingli/bingliList.jsp</result>
+        </action>
+        <action name="bingliDel" class="bingliAction" method="bingliDel">
+        </action>  
+        
+        <action name="jiluAdd" class="jiluAction" method="jiluAdd">
+        </action>
+        <action name="jiluUpd" class="jiluAction" method="jiluUpd">
+        </action>
+        <action name="jiluDel" class="jiluAction" method="jiluDel">
+        </action>
+        <action name="jiluToAdd" class="jiluAction" method="jiluToAdd">
+        	<result name="success">/admin/jilu/jiluAdd.jsp</result>
+        </action>        
+        <action name="jiluToUpd" class="jiluAction" method="jiluToUpd">
+        	<result name="success">/admin/jilu/jiluEditPre.jsp</result>
+        </action>        
+        <action name="jiluMana" class="jiluAction" method="jiluMana">
+        	<result name="success">/admin/jilu/jiluMana.jsp</result>
+        </action>        
+    </package>
+</struts>
