@@ -59,7 +59,7 @@ String path = request.getContextPath();
   <body bgColor='#ffffff' style="margin: 0;padding: 0">
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" background="<%=path %>/img/topbg.gif">
 	  <tr>
-	    <td width='50%' height="60" style="font-size:26px; font-weight: bold;">&nbsp;&nbsp;电子病历管理系统</td>
+	    <td width='50%' height="60" style="font-size:26px; font-weight: bold;">&nbsp;&nbsp;电子病历管理系统2</td>
 	    <td width='50%' align="right">
 	    	<table width="550" border="0" cellspacing="0" cellpadding="0">
 		      <tr>
